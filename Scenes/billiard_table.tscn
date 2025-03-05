@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://d5uy5c52h1bq"]
+
+[ext_resource type="PackedScene" uid="uid://f0km6eda76dk" path="res://Assets/Billiard Table.blend" id="1_4xuf2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xuf2"]
+size = Vector3(2.128, 0.01, 1.044)
+
+[node name="Billiard Table" instance=ExtResource("1_4xuf2")]
+
+[node name="Billiard Table_Fabric" parent="." index="0"]
+transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
+
+[node name="Billiard Table_Walls" parent="." index="1"]
+transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
+
+[node name="Billiard Table_Pocket Gold" parent="." index="2"]
+transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
+
+[node name="Billiard Table_Wood" parent="." index="3"]
+transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
+
+[node name="Billiard Table_Golds" parent="." index="4"]
+transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
+
+[node name="Billiard Table_Legs" parent="." index="5"]
+transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
+
+[node name="Billiard Table_Plastic Grids" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="9 Ball" parent="." index="7"]
+transform = Transform3D(0.560701, -0.82286, 0.0859997, -0.0707422, 0.0558251, 0.995369, -0.824312, -0.564504, -0.0269248, 0, 0, 0)
+visible = false
+
+[node name="8 Ball" parent="." index="8"]
+transform = Transform3D(0.0246714, -0.855237, -0.516567, -0.998775, -0.00724113, -0.0357133, 0.0268179, 0.517106, -0.854847, 0, 0, 0)
+visible = false
+
+[node name="14 Ball" parent="." index="9"]
+transform = Transform3D(0.736054, 0.330915, 0.589577, -0.593343, -0.101643, 0.797805, 0.324114, -0.937574, 0.121599, 0, 0, 0)
+visible = false
+
+[node name="15 Ball" parent="." index="10"]
+transform = Transform3D(-0.660961, 0.729522, 0.172654, -0.748403, -0.655501, -0.0953524, 0.0436374, -0.192346, 0.979785, 0, 0, 0)
+visible = false
+
+[node name="3 Ball" parent="." index="11"]
+transform = Transform3D(-0.0403169, 0.869319, 0.491466, 0.00717694, -0.491602, 0.870147, 0.998601, 0.0386305, 0.0135884, 0, 0, 0)
+visible = false
+
+[node name="10 Ball" parent="." index="12"]
+transform = Transform3D(0.924596, 0.340598, -0.167318, -0.202427, 0.0699464, -0.976223, -0.320976, 0.937006, 0.133693, 0, 0, 0)
+visible = false
+
+[node name="11 Ball" parent="." index="13"]
+transform = Transform3D(-0.0791205, 0.0343322, 0.995712, -0.962445, 0.255549, -0.0852885, -0.257526, -0.965607, 0.0128309, 0, 0, 0)
+visible = false
+
+[node name="5 Ball" parent="." index="14"]
+transform = Transform3D(-0.342894, 0.754376, 0.558768, 0.661407, 0.61629, -0.426155, -0.666217, 0.223572, -0.710669, 0, 0, 0)
+visible = false
+
+[node name="4 Ball" parent="." index="15"]
+transform = Transform3D(0.0333738, 0.971958, 0.230356, -0.9983, 0.0403293, -0.0255314, -0.0341246, -0.229241, 0.972196, 0, 0, 0)
+visible = false
+
+[node name="12 Ball" parent="." index="16"]
+transform = Transform3D(-0.148412, -0.109323, -0.982294, 0.986504, 0.0444423, -0.153994, 0.0605245, -0.992448, 0.101309, 0, 0, 0)
+visible = false
+
+[node name="7 Ball" parent="." index="17"]
+transform = Transform3D(0.498089, -0.738503, -0.453213, -0.0234979, -0.534078, 0.844446, -0.866161, -0.410189, -0.28353, 0, 0, 0)
+visible = false
+
+[node name="13 Ball" parent="." index="18"]
+transform = Transform3D(0.0778587, 0.7109, 0.698168, -0.992688, -0.00507335, 0.115869, 0.0859614, -0.702478, 0.705702, 0, 0, 0)
+visible = false
+
+[node name="2 Ball" parent="." index="19"]
+transform = Transform3D(0.429432, 0.88635, 0.169857, 0.280247, -0.309775, 0.907955, 0.857864, -0.342494, -0.381638, 0, 0, 0)
+visible = false
+
+[node name="6 Ball" parent="." index="20"]
+transform = Transform3D(0.564412, -0.0938346, 0.81946, 0.631197, 0.688323, -0.355925, -0.530952, 0.718531, 0.447976, 0, 0, 0)
+visible = false
+
+[node name="White" parent="." index="21"]
+transform = Transform3D(0.99944, 0, 0, 0, 0.99944, 0, 0, 0, 0.99944, 0, 0, 0)
+visible = false
+
+[node name="1 Ball" parent="." index="22"]
+transform = Transform3D(0.120859, 0.983701, -0.128864, -0.949065, 0.0768145, -0.303736, -0.289049, 0.159099, 0.943408, 0, 0, 0)
+visible = false
+
+[node name="Cue 1" parent="." index="23"]
+transform = Transform3D(-0.0207357, -0.855799, -0.516892, 0.999707, -0.0242225, -1.49012e-07, -0.0125203, -0.51674, 0.856051, 0, 0, 0)
+visible = false
+
+[node name="Surface" type="StaticBody3D" parent="." index="24"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Surface" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0, 0.00308228)
+shape = SubResource("BoxShape3D_4xuf2")
