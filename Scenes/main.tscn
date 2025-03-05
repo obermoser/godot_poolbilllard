@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://Scenes/billiard_table.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dqg62fll471ep" path="res://Scenes/ball.tscn" id="2_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://bmyw85ub8iu3d" path="res://Assets/textures/16074.jpg" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://ce1cc2cs05y7x" path="res://Assets/textures/16077.jpg" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://bd7v33km2uioc" path="res://Scripts/play_system.gd" id="4_kry3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -37,10 +37,12 @@ transform = Transform3D(1, 0, 0, 0, 0.0711318, 0.997467, 0, -0.997467, 0.0711318
 
 [node name="Billiard Table" parent="." instance=ExtResource("1_jjgbg")]
 
-[node name="Ball" parent="." instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496963, 0.031, -0.106498)
-_texture = ExtResource("3_8gbba")
-
 [node name="Ball2" parent="." instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496963, 0.031, 0.101203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599264, 0.031, 0.00361386)
 _texture = ExtResource("4_jjvhh")
+
+[node name="PlaySystem" type="Node3D" parent="."]
+script = ExtResource("4_kry3j")
+
+[node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663263, 0.031, 0.0021063)
