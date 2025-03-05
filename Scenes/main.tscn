@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfn56ejvnjpqm"]
+[gd_scene load_steps=9 format=3 uid="uid://dfn56ejvnjpqm"]
 
 [ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://Scenes/billiard_table.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dqg62fll471ep" path="res://Scenes/ball.tscn" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://ce1cc2cs05y7x" path="res://Assets/textures/16077.jpg" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://bd7v33km2uioc" path="res://Scripts/play_system.gd" id="4_kry3j"]
+[ext_resource type="ArrayMesh" uid="uid://4oojsywqw5hu" path="res://Assets/cue_stick.res" id="5_kry3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -41,8 +42,22 @@ transform = Transform3D(1, 0, 0, 0, 0.0711318, 0.997467, 0, -0.997467, 0.0711318
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599264, 0.031, 0.00361386)
 _texture = ExtResource("4_jjvhh")
 
-[node name="PlaySystem" type="Node3D" parent="."]
+[node name="PlaySystem" type="Node3D" parent="." node_paths=PackedStringArray("_cue_ball")]
 script = ExtResource("4_kry3j")
+_cue_ball = NodePath("CueBall")
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663263, 0.031, 0.0021063)
+
+[node name="CueStick" type="Node3D" parent="PlaySystem"]
+transform = Transform3D(0.999967, 0, 0.00808079, 0, 1, 0, -0.00808079, 0, 0.999967, 0, 0, 0)
+
+[node name="CueStickMesh" type="MeshInstance3D" parent="PlaySystem/CueStick"]
+transform = Transform3D(0.999903, 0.0139283, 0.000973955, 6.09831e-09, -0.0697565, 0.997564, 0.0139623, -0.997467, -0.0697497, 0, 0, 0)
+mesh = ExtResource("5_kry3j")
+skeleton = NodePath("../..")
+metadata/_edit_lock_ = true
+
+[node name="AimCam" type="Camera3D" parent="PlaySystem"]
+transform = Transform3D(1, 0, 0, 0, 0.90872, 0.417407, 0, -0.417407, 0.90872, 0, 0.0690669, 0)
+current = true
