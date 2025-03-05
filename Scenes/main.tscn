@@ -47,17 +47,18 @@ script = ExtResource("4_kry3j")
 _cue_ball = NodePath("CueBall")
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663263, 0.031, 0.0021063)
 
-[node name="CueStick" type="Node3D" parent="PlaySystem"]
-transform = Transform3D(0.999967, 0, 0.00808079, 0, 1, 0, -0.00808079, 0, 0.999967, 0, 0, 0)
+[node name="AimContainer" type="Node3D" parent="PlaySystem"]
 
-[node name="CueStickMesh" type="MeshInstance3D" parent="PlaySystem/CueStick"]
+[node name="CueStick" type="Node3D" parent="PlaySystem/AimContainer"]
+transform = Transform3D(0.999967, 0, 0.00808079, 0, 1, 0, -0.00808079, 0, 0.999967, 0, 0, 0.575534)
+
+[node name="CueStickMesh" type="MeshInstance3D" parent="PlaySystem/AimContainer/CueStick"]
 transform = Transform3D(0.999903, 0.0139283, 0.000973955, 6.09831e-09, -0.0697565, 0.997564, 0.0139623, -0.997467, -0.0697497, 0, 0, 0)
 mesh = ExtResource("5_kry3j")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 metadata/_edit_lock_ = true
 
-[node name="AimCam" type="Camera3D" parent="PlaySystem"]
-transform = Transform3D(1, 0, 0, 0, 0.90872, 0.417407, 0, -0.417407, 0.90872, 0, 0.0690669, 0)
+[node name="AimCam" type="Camera3D" parent="PlaySystem/AimContainer"]
+transform = Transform3D(1, 0, 0, 0, 0.827248, 0.561838, 0, -0.561838, 0.827248, 0, 0.166533, 0.575534)
 current = true
