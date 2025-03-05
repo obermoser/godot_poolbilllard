@@ -16,10 +16,11 @@ sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
 [sub_resource type="Environment" id="Environment_8gbba"]
 background_mode = 2
 sky = SubResource("Sky_bo1nx")
-tonemap_mode = 2
-ssr_enabled = true
+ambient_light_source = 3
+tonemap_mode = 3
 ssao_enabled = true
-glow_enabled = true
+ssil_enabled = true
+volumetric_fog_density = 0.008
 
 [node name="Main" type="Node3D"]
 
@@ -31,7 +32,7 @@ environment = SubResource("Environment_8gbba")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-shadow_bias = 0.05
+shadow_bias = 0.02
 
 [node name="Camera3D" type="Camera3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 0.0711318, 0.997467, 0, -0.997467, 0.0711318, 0, 1.01053, 0.0990715)
@@ -42,23 +43,30 @@ transform = Transform3D(1, 0, 0, 0, 0.0711318, 0.997467, 0, -0.997467, 0.0711318
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599264, 0.031, 0.00361386)
 _texture = ExtResource("4_jjvhh")
 
-[node name="PlaySystem" type="Node3D" parent="." node_paths=PackedStringArray("_cue_ball")]
+[node name="PlaySystem" type="Node3D" parent="." node_paths=PackedStringArray("_cue_ball", "_aim_container", "_cue_stick")]
 script = ExtResource("4_kry3j")
 _cue_ball = NodePath("CueBall")
+_aim_container = NodePath("AimContainer")
+_cue_stick = NodePath("AimContainer/CuestickContainer/CueStick")
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0309896, 0)
 
 [node name="AimContainer" type="Node3D" parent="PlaySystem"]
 
-[node name="CueStick" type="Node3D" parent="PlaySystem/AimContainer"]
-transform = Transform3D(0.999967, 0, 0.00808079, 0, 1, 0, -0.00808079, 0, 0.999967, 0, 0, 0.575534)
+[node name="AimCam" type="Camera3D" parent="PlaySystem/AimContainer"]
+transform = Transform3D(1, 0, 0, 0, 0.836612, 0.547797, 0, -0.547797, 0.836612, 0, 0.397626, 0.784486)
+current = true
+fov = 60.0
 
-[node name="CueStickMesh" type="MeshInstance3D" parent="PlaySystem/AimContainer/CueStick"]
+[node name="CuestickContainer" type="Node3D" parent="PlaySystem/AimContainer"]
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 0, 0)
+
+[node name="CueStick" type="Node3D" parent="PlaySystem/AimContainer/CuestickContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 0, 0.796)
+
+[node name="CueStickMesh" type="MeshInstance3D" parent="PlaySystem/AimContainer/CuestickContainer/CueStick"]
 transform = Transform3D(0.999903, 0.0139283, 0.000973955, 6.09831e-09, -0.0697565, 0.997564, 0.0139623, -0.997467, -0.0697497, 0, 0, 0)
 mesh = ExtResource("5_kry3j")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 metadata/_edit_lock_ = true
-
-[node name="AimCam" type="Camera3D" parent="PlaySystem/AimContainer"]
-transform = Transform3D(1, 0, 0, 0, 0.827248, 0.561838, 0, -0.561838, 0.827248, 0, 0.166533, 0.575534)
-current = true
