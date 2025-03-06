@@ -34,5 +34,6 @@ func _input(event: InputEvent) -> void:
 func _handle_shot_input():
 	#Shooting the ball
 	if Input.is_action_just_pressed("shoot"):
-		var impulse_vector = Vector3(1,0,0)
-		_cue_ball.apply_central_impulse(impulse_vector)
+		#var impulse_vector = Vector3(1,0,0)
+		var stick_direction = -_aim_container.basis.z
+		_cue_ball.apply_central_impulse(stick_direction)
