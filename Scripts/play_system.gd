@@ -13,6 +13,10 @@ extends Node3D
 @export var _stick_max_z : float = 1.40
 @export var _stick_sensitivity :float = 0.01
 @onready var _stick_animation_player: AnimationPlayer = $AnimationPlayer
+@export_subgroup("Shot Power")
+@export var _shot_power_min = 0.5
+@export var _shot_power_max = 2.5
+
 
 func _ready() -> void:
 	#Hiding the Mouse

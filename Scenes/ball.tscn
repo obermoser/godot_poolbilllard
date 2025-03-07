@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqg62fll471ep"]
+[gd_scene load_steps=5 format=3 uid="uid://dqg62fll471ep"]
 
 [ext_resource type="ArrayMesh" uid="uid://bhkj2tuopku5v" path="res://Assets/ball.res" id="1_d60mj"]
 [ext_resource type="Script" uid="uid://ssjr5xellxkq" path="res://Scripts/ball.gd" id="1_ij5cq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ij5cq"]
+bounce = 0.9
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d60mj"]
 radius = 0.026
 
 [node name="RigidBody3D" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_ij5cq")
+angular_damp = 1.5
 script = ExtResource("1_ij5cq")
 
 [node name="BallMesh" type="MeshInstance3D" parent="."]
