@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://d5uy5c52h1bq"]
+[gd_scene load_steps=5 format=3 uid="uid://d5uy5c52h1bq"]
 
 [ext_resource type="PackedScene" uid="uid://f0km6eda76dk" path="res://Assets/Billiard Table.blend" id="1_4xuf2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xuf2"]
 size = Vector3(2.128, 0.01, 1.044)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f1eli"]
+size = Vector3(0.955933, 0.588867, 0.0581055)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0m84d"]
+size = Vector3(0.102539, 0.636719, 1)
 
 [node name="Billiard Table" instance=ExtResource("1_4xuf2")]
 
@@ -101,3 +107,29 @@ visible = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Surface" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00750732, 0, 0.00308228)
 shape = SubResource("BoxShape3D_4xuf2")
+
+[node name="Walls" type="StaticBody3D" parent="." index="25"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544742, 0.205566, 0.56955)
+shape = SubResource("BoxShape3D_f1eli")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5488, 0.205566, 0.56955)
+shape = SubResource("BoxShape3D_f1eli")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544742, 0.205566, -0.570075)
+shape = SubResource("BoxShape3D_f1eli")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5488, 0.205566, -0.570075)
+shape = SubResource("BoxShape3D_f1eli")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Walls" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13344, 0.181641, 0)
+shape = SubResource("BoxShape3D_0m84d")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Walls" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13102, 0.181641, 0)
+shape = SubResource("BoxShape3D_0m84d")
