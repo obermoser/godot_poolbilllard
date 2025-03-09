@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cfyprku4cwepi" path="res://Scripts/overhead_cam.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://Scenes/billiard_table.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dqg62fll471ep" path="res://Scenes/ball.tscn" id="2_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://ce1cc2cs05y7x" path="res://Assets/textures/16077.jpg" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://bmyw85ub8iu3d" path="res://Assets/textures/16074.jpg" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://bd7v33km2uioc" path="res://Scripts/play_system.gd" id="4_kry3j"]
 [ext_resource type="ArrayMesh" uid="uid://4oojsywqw5hu" path="res://Assets/cue_stick.res" id="5_kry3j"]
 
@@ -77,6 +77,12 @@ _data = {
 
 [node name="Main" type="Node3D"]
 
+[node name="BallRack" type="Node3D" parent="."]
+
+[node name="Ball" parent="BallRack" instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599264, 0.031, 0.00361386)
+_texture = ExtResource("4_21xkr")
+
 [node name="Environment" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
@@ -93,10 +99,6 @@ script = ExtResource("1_21xkr")
 
 [node name="Billiard Table" parent="." instance=ExtResource("1_jjgbg")]
 
-[node name="Ball2" parent="." instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599264, 0.031, 0.00361386)
-_texture = ExtResource("4_jjvhh")
-
 [node name="PlaySystem" type="Node3D" parent="." node_paths=PackedStringArray("_cue_ball", "_aim_container", "_cue_stick")]
 script = ExtResource("4_kry3j")
 _cue_ball = NodePath("CueBall")
@@ -104,7 +106,7 @@ _aim_container = NodePath("AimContainer")
 _cue_stick = NodePath("AimContainer/CuestickContainer/CueStick")
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0309896, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528446, 0.0309896, 0)
 
 [node name="AimContainer" type="Node3D" parent="PlaySystem"]
 

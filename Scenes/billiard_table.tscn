@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d5uy5c52h1bq"]
+[gd_scene load_steps=8 format=3 uid="uid://d5uy5c52h1bq"]
 
 [ext_resource type="PackedScene" uid="uid://f0km6eda76dk" path="res://Assets/Billiard Table.blend" id="1_4xuf2"]
+[ext_resource type="Script" uid="uid://cf2q384yfaxy0" path="res://Scripts/billiard_table.gd" id="2_f1eli"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xuf2"]
 size = Vector3(2.128, 0.01, 1.044)
@@ -19,6 +20,7 @@ size = Vector3(0.102539, 0.636719, 0.97644)
 size = Vector3(0.0423584, 1, 0.128601)
 
 [node name="Billiard Table" instance=ExtResource("1_4xuf2")]
+script = ExtResource("2_f1eli")
 
 [node name="Billiard Table_Fabric" parent="." index="0"]
 transform = Transform3D(1.34099, 0, 0, 0, 1.34099, 0, 0, 0, 1.34099, 0, 0, 0)
