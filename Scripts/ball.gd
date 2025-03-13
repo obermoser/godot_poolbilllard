@@ -1,5 +1,8 @@
 #By Bernhard Obermoser 2025
+class_name Ball
 extends RigidBody3D
+
+const BALL_RADIUS = 0.027
 
 @export var _texture : Texture2D
 
