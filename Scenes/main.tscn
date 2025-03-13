@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://dfn56ejvnjpqm"]
 
-[ext_resource type="Script" uid="uid://cfyprku4cwepi" path="res://Scripts/overhead_cam.gd" id="1_21xkr"]
-[ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://Scenes/billiard_table.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://dqg62fll471ep" path="res://Scenes/ball.tscn" id="2_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://bmyw85ub8iu3d" path="res://Assets/textures/16074.jpg" id="4_21xkr"]
-[ext_resource type="Script" uid="uid://bd7v33km2uioc" path="res://Scripts/play_system.gd" id="4_kry3j"]
-[ext_resource type="ArrayMesh" uid="uid://4oojsywqw5hu" path="res://Assets/cue_stick.res" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://cfyprku4cwepi" path="res://scripts/overhead_cam.gd" id="1_21xkr"]
+[ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://scenes/billiard_table.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dqg62fll471ep" path="res://scenes/ball.tscn" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://bd7v33km2uioc" path="res://scripts/play_system.gd" id="4_kry3j"]
+[ext_resource type="ArrayMesh" uid="uid://4oojsywqw5hu" path="res://assets/cue_stick.res" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://cfddg15ga65jv" path="res://scripts/ball_rack.gd" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -77,12 +77,6 @@ _data = {
 
 [node name="Main" type="Node3D"]
 
-[node name="BallRack" type="Node3D" parent="."]
-
-[node name="Ball" parent="BallRack" instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599264, 0.031, 0.00361386)
-_texture = ExtResource("4_21xkr")
-
 [node name="Environment" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
@@ -131,3 +125,7 @@ metadata/_edit_lock_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_21xkr")
 }
+
+[node name="BallRack" type="Node3D" parent="."]
+script = ExtResource("6_21xkr")
+_ball_tscn = ExtResource("2_bo1nx")

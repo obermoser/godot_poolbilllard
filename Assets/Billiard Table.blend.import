@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://f0km6eda76dk"
-path="res://.godot/imported/Billiard Table.blend-721ac1eb91f0db225bc2b753de5326bd.scn"
+path="res://.godot/imported/Billiard Table.blend-20361224c7a9739e3d560973be6d14ac.scn"
 
 [deps]
 
-source_file="res://Assets/Billiard Table.blend"
-dest_files=["res://.godot/imported/Billiard Table.blend-721ac1eb91f0db225bc2b753de5326bd.scn"]
+source_file="res://assets/Billiard Table.blend"
+dest_files=["res://.godot/imported/Billiard Table.blend-20361224c7a9739e3d560973be6d14ac.scn"]
 
 [params]
 

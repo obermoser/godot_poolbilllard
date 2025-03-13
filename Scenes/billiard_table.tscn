@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d5uy5c52h1bq"]
 
-[ext_resource type="PackedScene" uid="uid://f0km6eda76dk" path="res://Assets/Billiard Table.blend" id="1_4xuf2"]
-[ext_resource type="Script" uid="uid://cf2q384yfaxy0" path="res://Scripts/billiard_table.gd" id="2_f1eli"]
+[ext_resource type="PackedScene" uid="uid://f0km6eda76dk" path="res://assets/Billiard Table.blend" id="1_4xuf2"]
+[ext_resource type="Script" uid="uid://cf2q384yfaxy0" path="res://scripts/billiard_table.gd" id="2_f1eli"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xuf2"]
 size = Vector3(2.128, 0.01, 1.044)
