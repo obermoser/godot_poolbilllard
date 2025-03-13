@@ -191,3 +191,6 @@ shape = SubResource("BoxShape3D_d3m3c")
 [node name="Basket12" type="CollisionShape3D" parent="Walls" index="17"]
 transform = Transform3D(-0.694822, 0, 0.719182, 0, 1, 0, -0.719182, 0, -0.694822, 1.05823, 0, -0.617477)
 shape = SubResource("BoxShape3D_d3m3c")
+
+[node name="Headspot" type="Node3D" parent="." index="26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535, 0, 0)

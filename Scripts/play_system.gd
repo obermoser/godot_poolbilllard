@@ -23,8 +23,8 @@ var _shot_percent:float = 0.0
 func _ready() -> void:
 	#Hiding the Mouse
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	pass
-	
+	_cue_ball.position = BillardTable.HEAD_SPOT
+		
 func _process(_delta: float) -> void:
 	_handle_shot_input()
 	_aim_container.position = _cue_ball.position	
