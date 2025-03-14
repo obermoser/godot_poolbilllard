@@ -12,6 +12,7 @@ var _texture : Texture2D
 var _ball_type : Enums.BallType = Enums.BallType.CUE_BALL
 
 func _ready() -> void:
+	GameEvents.ball_potted.connect(_on_ball_potted)
 	if not self.sleeping:
 		self.sleeping = true
 		Ball.num_balls_moving += 1	
@@ -60,3 +61,8 @@ func _on_sleeping_state_changed() -> void:
 		
 	if Ball.num_balls_moving == 0:
 		GameEvents.all_balls_stopped.emit()
+
+## This executes when the ball has landed in the pocket
+func _on_ball_potted(ball, pocket):
+	if ball == self:
+		pass

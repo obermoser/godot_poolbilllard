@@ -8,6 +8,7 @@ extends Node3D
 @export var _aim_container: Node3D
 @export var _cue_stick : Node3D
 @export var _aim_cam:Camera3D
+@export var _game_state:GameState
 
 @export_category("Cue Stick Settings")
 @export var _stick_min_z := 0.75
@@ -21,7 +22,7 @@ extends Node3D
 var _shot_percent:float = 0.0
 
 #finite state machine
-var _current_playstate : Enums.PlayState = Enums.PlayState.AIMING
+#var _current_playstate : Enums.PlayState = Enums.PlayState.AIMING
 
 
 func _ready() -> void:
@@ -47,7 +48,7 @@ func _input(event: InputEvent) -> void:
 
 ## This is observing if the "Shoot" button is clicked
 func _handle_shot_input():
-	if Input.is_action_just_pressed("shoot") and _current_playstate == Enums.PlayState.AIMING:
+	if Input.is_action_just_pressed("shoot") and _game_state.current_play_state == Enums.PlayState.AIMING:
 		_stick_animation_player.play("shoot_stick")
 
 ## This is giving the ball the force to shoot it
@@ -60,11 +61,10 @@ func _shoot_ball():
 	_cue_ball.apply_central_impulse(_shot_vector)
 	#Hide the stick while shot is processing
 	_cue_stick.visible = false
-	_current_playstate = Enums.PlayState.BALLS_IN_PLAY
+	_game_state.current_play_state = Enums.PlayState.BALLS_IN_PLAY
 	GameEvents.cue_ball_hit.emit()
 
 ## This function runs when the shot is completed and a new try is being set up
 func _set_up_new_shot():
 	_cue_stick.visible = true
 	_aim_cam.make_current()
-	_current_playstate = Enums.PlayState.AIMING

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfn56ejvnjpqm"]
+[gd_scene load_steps=15 format=3 uid="uid://dfn56ejvnjpqm"]
 
 [ext_resource type="Script" uid="uid://cfyprku4cwepi" path="res://scripts/overhead_cam.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://scenes/billiard_table.tscn" id="1_jjgbg"]
@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://4oojsywqw5hu" path="res://assets/cue_stick.res" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://cfddg15ga65jv" path="res://scripts/ball_rack.gd" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://dw2cxf3exoos6" path="res://scripts/rules_processor.gd" id="7_o6xl0"]
+[ext_resource type="Resource" uid="uid://dktbv24xni88i" path="res://resources/release_game_state.tres" id="8_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -100,6 +101,7 @@ _cue_ball = NodePath("CueBall")
 _aim_container = NodePath("AimContainer")
 _cue_stick = NodePath("AimContainer/CuestickContainer/CueStick")
 _aim_cam = NodePath("AimContainer/AimCam")
+_game_state = ExtResource("8_tipki")
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528446, 0.0309896, 0)
@@ -134,3 +136,4 @@ _ball_tscn = ExtResource("2_bo1nx")
 
 [node name="RulesProcessor" type="Node" parent="."]
 script = ExtResource("7_o6xl0")
+_game_state = ExtResource("8_tipki")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GameState" load_steps=2 format=3 uid="uid://cpjjdysuy3od4"]
+
+[ext_resource type="Script" uid="uid://b0a5gcb6yl6f8" path="res://scripts/game_state.gd" id="1_cpqnc"]
+
+[resource]
+script = ExtResource("1_cpqnc")
+current_player_id = 0
+current_play_state = 0
+metadata/_custom_type_script = "uid://b0a5gcb6yl6f8"

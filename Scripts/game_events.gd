@@ -8,3 +8,6 @@ signal all_balls_stopped
 
 ## The shot is now completed
 signal shot_completed
+
+## A Ball is in the pocket
+signal ball_potted(ball, pocket)
