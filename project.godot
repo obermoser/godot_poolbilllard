@@ -20,11 +20,6 @@ config/icon="res://icon.svg"
 GameEvents="*res://scripts/game_events.gd"
 Enums="*res://scripts/enums.gd"
 
-[display]
-
-window/size/viewport_width=2304
-window/size/viewport_height=1296
-
 [input]
 
 shoot={

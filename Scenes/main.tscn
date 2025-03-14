@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfn56ejvnjpqm"]
+[gd_scene load_steps=14 format=3 uid="uid://dfn56ejvnjpqm"]
 
 [ext_resource type="Script" uid="uid://cfyprku4cwepi" path="res://scripts/overhead_cam.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://scenes/billiard_table.tscn" id="1_jjgbg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bd7v33km2uioc" path="res://scripts/play_system.gd" id="4_kry3j"]
 [ext_resource type="ArrayMesh" uid="uid://4oojsywqw5hu" path="res://assets/cue_stick.res" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://cfddg15ga65jv" path="res://scripts/ball_rack.gd" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://dw2cxf3exoos6" path="res://scripts/rules_processor.gd" id="7_o6xl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -93,11 +94,12 @@ script = ExtResource("1_21xkr")
 
 [node name="Billiard Table" parent="." instance=ExtResource("1_jjgbg")]
 
-[node name="PlaySystem" type="Node3D" parent="." node_paths=PackedStringArray("_cue_ball", "_aim_container", "_cue_stick")]
+[node name="PlaySystem" type="Node3D" parent="." node_paths=PackedStringArray("_cue_ball", "_aim_container", "_cue_stick", "_aim_cam")]
 script = ExtResource("4_kry3j")
 _cue_ball = NodePath("CueBall")
 _aim_container = NodePath("AimContainer")
 _cue_stick = NodePath("AimContainer/CuestickContainer/CueStick")
+_aim_cam = NodePath("AimContainer/AimCam")
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528446, 0.0309896, 0)
@@ -105,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528446, 0.0309896, 0)
 [node name="AimContainer" type="Node3D" parent="PlaySystem"]
 
 [node name="AimCam" type="Camera3D" parent="PlaySystem/AimContainer"]
-transform = Transform3D(1, 0, 0, 0, 0.836612, 0.547797, 0, -0.547797, 0.836612, 0, 0.397626, 0.784486)
+transform = Transform3D(1, 0, 0, 0, 0.867566, 0.497322, 0, -0.497322, 0.867566, 0, 0.397626, 0.784486)
 current = true
 fov = 60.0
 
@@ -129,3 +131,6 @@ libraries = {
 [node name="BallRack" type="Node3D" parent="."]
 script = ExtResource("6_21xkr")
 _ball_tscn = ExtResource("2_bo1nx")
+
+[node name="RulesProcessor" type="Node" parent="."]
+script = ExtResource("7_o6xl0")

@@ -7,6 +7,7 @@ extends Node3D
 @export var _cue_ball : RigidBody3D
 @export var _aim_container: Node3D
 @export var _cue_stick : Node3D
+@export var _aim_cam:Camera3D
 
 @export_category("Cue Stick Settings")
 @export var _stick_min_z := 0.75
@@ -19,11 +20,15 @@ extends Node3D
 
 var _shot_percent:float = 0.0
 
+#finite state machine
+var _current_playstate : Enums.PlayState = Enums.PlayState.AIMING
+
 
 func _ready() -> void:
 	#Hiding the Mouse
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_cue_ball.position = BillardTable.HEAD_SPOT
+	GameEvents.shot_completed.connect(_set_up_new_shot)
 		
 func _process(_delta: float) -> void:
 	_handle_shot_input()
@@ -39,16 +44,13 @@ func _input(event: InputEvent) -> void:
 		_shot_percent += mouse_motion.relative.y * _stick_sensitivity
 		_shot_percent = clamp(_shot_percent, 0,1)
 		_cue_stick.position.z = lerp(_stick_min_z, _stick_max_z, _shot_percent)
-		
-		#Moving the Cue Stick forward/backward
-		#_cue_stick.position.z += mouse_motion.relative.y * _stick_sensitivity
-		#_cue_stick.position.z = clamp(_cue_stick.position.z, _stick_min_z,_stick_max_z )
 
+## This is observing if the "Shoot" button is clicked
 func _handle_shot_input():
-	#Shooting the ball
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and _current_playstate == Enums.PlayState.AIMING:
 		_stick_animation_player.play("shoot_stick")
 
+## This is giving the ball the force to shoot it
 func _shoot_ball():
 	#Shooting the ball
 	var _shot_power := lerp(_shot_power_min, _shot_power_max, _shot_percent) as float
@@ -58,5 +60,11 @@ func _shoot_ball():
 	_cue_ball.apply_central_impulse(_shot_vector)
 	#Hide the stick while shot is processing
 	_cue_stick.visible = false
-	
+	_current_playstate = Enums.PlayState.BALLS_IN_PLAY
 	GameEvents.cue_ball_hit.emit()
+
+## This function runs when the shot is completed and a new try is being set up
+func _set_up_new_shot():
+	_cue_stick.visible = true
+	_aim_cam.make_current()
+	_current_playstate = Enums.PlayState.AIMING

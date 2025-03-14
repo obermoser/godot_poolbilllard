@@ -11,6 +11,7 @@ radius = 0.026
 
 [node name="Ball" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_ij5cq")
+sleeping = true
 angular_damp = 1.5
 script = ExtResource("1_ij5cq")
 
@@ -19,3 +20,5 @@ mesh = ExtResource("2_cxlvu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_d60mj")
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
