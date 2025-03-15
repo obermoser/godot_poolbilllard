@@ -146,7 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13102, 0.181641, -0.0046997
 shape = SubResource("BoxShape3D_0m84d")
 
 [node name="Basket" type="CollisionShape3D" parent="Walls" index="6"]
-transform = Transform3D(0.944818, 0, 0.327597, 0, 1, 0, -0.327597, 0, 0.944818, -0.0645619, 0, 0.609687)
+transform = Transform3D(0.944818, 0, 0.327597, 0, 1, 0, -0.327597, 0, 0.944818, -0.0645619, 0, 0.611501)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket2" type="CollisionShape3D" parent="Walls" index="7"]
@@ -154,27 +154,27 @@ transform = Transform3D(0.960343, 0, -0.278823, 0, 1, 0, 0.278823, 0, 0.960343, 
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket3" type="CollisionShape3D" parent="Walls" index="8"]
-transform = Transform3D(-0.925077, 0, -0.379779, 0, 1, 0, 0.379779, 0, -0.925077, 0.0673671, 0, -0.612496)
+transform = Transform3D(-0.925077, 0, -0.379779, 0, 1, 0, 0.379779, 0, -0.925077, 0.0666413, 0, -0.616851)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket4" type="CollisionShape3D" parent="Walls" index="9"]
-transform = Transform3D(-0.974398, 0, 0.224832, 0, 1, 0, -0.224832, 0, -0.974398, -0.0645954, 0, -0.610018)
+transform = Transform3D(-0.974398, 0, 0.224832, 0, 1, 0, -0.224832, 0, -0.974398, -0.0667728, 0, -0.611107)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket5" type="CollisionShape3D" parent="Walls" index="10"]
-transform = Transform3D(-0.744137, 0, -0.668027, 0, 1, 0, 0.668027, 0, -0.744137, -1.04677, 0, -0.612426)
+transform = Transform3D(-0.744137, 0, -0.668027, 0, 1, 0, 0.668027, 0, -0.744137, -1.04786, 0, -0.616418)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket6" type="CollisionShape3D" parent="Walls" index="11"]
-transform = Transform3D(-0.69689, 0, -0.717178, 0, 1, 0, 0.717178, 0, -0.69689, -1.16003, 0, -0.523287)
+transform = Transform3D(-0.69689, 0, -0.717178, 0, 1, 0, 0.717178, 0, -0.69689, -1.15676, 0, -0.520021)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket7" type="CollisionShape3D" parent="Walls" index="12"]
-transform = Transform3D(0.66177, 0, -0.749707, 0, 1, 0, 0.749707, 0, 0.66177, -1.14409, 0, 0.501238)
+transform = Transform3D(0.66177, 0, -0.749707, 0, 1, 0, 0.749707, 0, 0.66177, -1.14772, 0, 0.501238)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket8" type="CollisionShape3D" parent="Walls" index="13"]
-transform = Transform3D(0.711315, 0, -0.702873, 0, 1, 0, 0.702873, 0, 0.711315, -1.0559, 0, 0.615245)
+transform = Transform3D(0.711315, 0, -0.702873, 0, 1, 0, 0.702873, 0, 0.711315, -1.05409, 0, 0.616334)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket9" type="CollisionShape3D" parent="Walls" index="14"]
@@ -182,15 +182,15 @@ transform = Transform3D(0.676272, 0, 0.736652, 0, 1, 0, -0.736652, 0, 0.676272, 
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket10" type="CollisionShape3D" parent="Walls" index="15"]
-transform = Transform3D(0.624507, 0, 0.781019, 0, 1, 0, -0.781019, 0, 0.624507, 1.15064, 0, 0.50701)
+transform = Transform3D(0.624507, 0, 0.781019, 0, 1, 0, -0.781019, 0, 0.624507, 1.15245, 0, 0.507373)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket11" type="CollisionShape3D" parent="Walls" index="16"]
-transform = Transform3D(-0.644204, 0, 0.764854, 0, 1, 0, -0.764854, 0, -0.644204, 1.14375, 0, -0.501456)
+transform = Transform3D(-0.644204, 0, 0.764854, 0, 1, 0, -0.764854, 0, -0.644204, 1.15137, 0, -0.505085)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Basket12" type="CollisionShape3D" parent="Walls" index="17"]
-transform = Transform3D(-0.694822, 0, 0.719182, 0, 1, 0, -0.719182, 0, -0.694822, 1.05823, 0, -0.617477)
+transform = Transform3D(-0.694822, 0, 0.719182, 0, 1, 0, -0.719182, 0, -0.694822, 1.05569, 0, -0.61784)
 shape = SubResource("BoxShape3D_d3m3c")
 
 [node name="Headspot" type="Node3D" parent="." index="26"]

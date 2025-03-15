@@ -34,6 +34,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	_handle_shot_input()
 	_aim_container.position = _cue_ball.position	
+	_process_cheat_mode()
 	
 func _input(event: InputEvent) -> void:
 	#Handling Mouse Movement for the Aim Container/CueStick
@@ -68,3 +69,10 @@ func _shoot_ball():
 func _set_up_new_shot():
 	_cue_stick.visible = true
 	_aim_cam.make_current()
+
+func _process_cheat_mode():
+	_cue_ball.apply_central_force(Vector3(
+		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+		0,
+		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	)*8)

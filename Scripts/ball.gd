@@ -65,4 +65,8 @@ func _on_sleeping_state_changed() -> void:
 ## This executes when the ball has landed in the pocket
 func _on_ball_potted(ball, pocket):
 	if ball == self:
-		pass
+		self.freeze = true
+		self.sleeping = true
+		self.sleeping_state_changed.emit()
+		self.position = Vector3(0,-0.5,0)
+		#self.queue_free()
