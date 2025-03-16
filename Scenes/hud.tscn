@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4pdu8m1wwxtx"]
+
+[ext_resource type="LabelSettings" uid="uid://3toaiv0c4hw7" path="res://resources/hud_fonts.tres" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://dykxm1xy785a0" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="Resource" uid="uid://dktbv24xni88i" path="res://resources/release_game_state.tres" id="2_5ysmq"]
+
+[node name="HUD" type="MarginContainer" node_paths=PackedStringArray("_player_label", "_instructions_label")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+script = ExtResource("1_oo0fn")
+_player_label = NodePath("PlayerLabel")
+_instructions_label = NodePath("InstructionsLabel")
+_game_state = ExtResource("2_5ysmq")
+
+[node name="PlayerLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Player 1"
+label_settings = ExtResource("1_ahhtf")
+
+[node name="InstructionsLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Aim and shoot"
+label_settings = ExtResource("1_ahhtf")
+horizontal_alignment = 1

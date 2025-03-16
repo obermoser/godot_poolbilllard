@@ -20,7 +20,7 @@ func _ready() -> void:
 	_apply_new_material()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 		self.linear_velocity.y = min(Ball.BALL_DIAMETER,self.linear_velocity.y)
 
 
@@ -69,4 +69,3 @@ func _on_ball_potted(ball, pocket):
 		self.sleeping = true
 		self.sleeping_state_changed.emit()
 		self.position = Vector3(0,-0.5,0)
-		#self.queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfn56ejvnjpqm"]
+[gd_scene load_steps=16 format=3 uid="uid://dfn56ejvnjpqm"]
 
 [ext_resource type="Script" uid="uid://cfyprku4cwepi" path="res://scripts/overhead_cam.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://d5uy5c52h1bq" path="res://scenes/billiard_table.tscn" id="1_jjgbg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cfddg15ga65jv" path="res://scripts/ball_rack.gd" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://dw2cxf3exoos6" path="res://scripts/rules_processor.gd" id="7_o6xl0"]
 [ext_resource type="Resource" uid="uid://dktbv24xni88i" path="res://resources/release_game_state.tres" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://c4pdu8m1wwxtx" path="res://scenes/hud.tscn" id="9_85g3d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -137,3 +138,5 @@ _ball_tscn = ExtResource("2_bo1nx")
 [node name="RulesProcessor" type="Node" parent="."]
 script = ExtResource("7_o6xl0")
 _game_state = ExtResource("8_tipki")
+
+[node name="HUD" parent="." instance=ExtResource("9_85g3d")]

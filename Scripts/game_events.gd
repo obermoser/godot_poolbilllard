@@ -11,3 +11,6 @@ signal shot_completed
 
 ## A Ball is in the pocket
 signal ball_potted(ball, pocket)
+
+## Fired when the play state changes
+signal play_state_changed

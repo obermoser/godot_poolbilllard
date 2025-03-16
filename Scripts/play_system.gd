@@ -22,11 +22,11 @@ extends Node3D
 var _shot_percent:float = 0.0
 
 #finite state machine
-#var _current_playstate : Enums.PlayState = Enums.PlayState.AIMING
+#var _play_state : Enums.PlayState = Enums.PlayState.AIMING
 
 
 func _ready() -> void:
-	#Hiding the Mouse
+	## Hiding the Mouse
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_cue_ball.position = BillardTable.HEAD_SPOT
 	GameEvents.shot_completed.connect(_set_up_new_shot)
@@ -63,12 +63,15 @@ func _shoot_ball():
 	#Hide the stick while shot is processing
 	_cue_stick.visible = false
 	_game_state.current_play_state = Enums.PlayState.BALLS_IN_PLAY
+	GameEvents.play_state_changed.emit()
 	GameEvents.cue_ball_hit.emit()
 
 ## This function runs when the shot is completed and a new try is being set up
 func _set_up_new_shot():
 	_cue_stick.visible = true
 	_aim_cam.make_current()
+	_game_state.current_play_state = Enums.PlayState.AIMING
+	
 
 func _process_cheat_mode():
 	_cue_ball.apply_central_force(Vector3(
