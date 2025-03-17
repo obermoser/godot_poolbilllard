@@ -22,8 +22,8 @@ Enums="*res://scripts/enums.gd"
 
 [display]
 
-window/size/viewport_width=2304
-window/size/viewport_height=1296
+window/size/viewport_width=960
+window/size/viewport_height=540
 
 [input]
 
