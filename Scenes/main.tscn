@@ -103,6 +103,7 @@ _aim_container = NodePath("AimContainer")
 _cue_stick = NodePath("AimContainer/CuestickContainer/CueStick")
 _aim_cam = NodePath("AimContainer/AimCam")
 _game_state = ExtResource("8_tipki")
+_cheat_mode_enabled = true
 
 [node name="CueBall" parent="PlaySystem" instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528446, 0.0309896, 0)

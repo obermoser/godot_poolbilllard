@@ -19,6 +19,8 @@ extends Node3D
 @export var _shot_power_min := 0.5
 @export var _shot_power_max := 5.0
 
+@export_category("Debug Settings")
+@export var _cheat_mode_enabled:bool = false
 var _shot_percent:float = 0.0
 
 #finite state machine
@@ -34,7 +36,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	_handle_shot_input()
 	_aim_container.position = _cue_ball.position	
-	_process_cheat_mode()
+	if _cheat_mode_enabled:
+		_process_cheat_mode()
 	
 func _input(event: InputEvent) -> void:
 	#Handling Mouse Movement for the Aim Container/CueStick
