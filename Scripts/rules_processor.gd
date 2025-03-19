@@ -14,12 +14,20 @@ func _process_rules()->void:
 	for occ in _occurences_during_shot:
 		if occ is PocketOccurence:
 			var ball:Ball = occ.ball
-				
+			
+			if ball._is_object_ball():
+				_check_and_set_ball_suit_for_players(ball)
 		pass
 		
 	_game_state.current_play_state = Enums.PlayState.AIMING
 	GameEvents.shot_completed.emit()
 	
+func _check_and_set_ball_suit_for_players(ball:Ball)->void:
+	var cp_id = _game_state.current_player_id
+	
+	if _game_state.ball_suit_by_player_id[cp_id] == Enums.BallType.TBD:
+		_game_state.ball_suit_by_player_id[cp_id] = ball._ball_type 
+	pass
 
 func _on_ball_potted(ball:Ball, pocket:Pocket):
 	var pocket_occurence = PocketOccurence.new()
@@ -27,6 +35,8 @@ func _on_ball_potted(ball:Ball, pocket:Pocket):
 	pocket_occurence.pocket = pocket
 	_occurences_during_shot.append(pocket_occurence)
 
+
+## Occurences
 ## Keeps track of what happened on the field
 class Occurence:
 	pass

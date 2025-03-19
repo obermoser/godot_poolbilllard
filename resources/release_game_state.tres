@@ -6,4 +6,5 @@
 script = ExtResource("1_l40f8")
 current_player_id = 0
 current_play_state = 0
+ball_suit_by_player_id = Array[int]([4, 4])
 metadata/_custom_type_script = "uid://b0a5gcb6yl6f8"

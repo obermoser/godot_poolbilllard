@@ -52,7 +52,6 @@ func _apply_new_material():
 	#Apply the new Material to the Mesh
 	$BallMesh.material_override = _new_material
 
-
 func _on_sleeping_state_changed() -> void:
 	if self.sleeping:
 		Ball.num_balls_moving -= 1
@@ -69,3 +68,6 @@ func _on_ball_potted(ball, pocket):
 		self.sleeping = true
 		self.sleeping_state_changed.emit()
 		self.position = Vector3(0,-0.5,0)
+
+func _is_object_ball()->bool:
+	return (self._ball_type == Enums.BallType.STRIPES or self._ball_type == Enums.BallType.SOLIDS)

@@ -6,7 +6,8 @@ enum BallType{
 	SOLIDS,
 	STRIPES,
 	CUE_BALL,
-	EIGHT_BALL
+	EIGHT_BALL,
+	TBD
 }
  
 enum PlayState { ## Handling the play state of the balls
