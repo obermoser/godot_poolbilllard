@@ -28,9 +28,16 @@ func _check_and_set_ball_suit_for_players(ball:Ball)->void:
 	if _game_state.ball_suit_by_player_id[cp_id] == Enums.BallType.TBD:
 		_game_state.ball_suit_by_player_id[cp_id] = ball._ball_type 
 		
-		var op_id = int(not cp_id)
+		_get_other_player_id(cp_id)
 	pass
 
+## Returns the id of the other player.[br]
+## Takes [param player_id] as the current player's id
+func _get_other_player_id(player_id:int)->int:
+	return int(not player_id)
+
+## Fires when a ball gets into a pocket.[br]
+## Gets [param ball] & [param pocket]
 func _on_ball_potted(ball:Ball, pocket:Pocket):
 	var pocket_occurence = PocketOccurence.new()
 	pocket_occurence.ball = ball
