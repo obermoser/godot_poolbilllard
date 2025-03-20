@@ -27,6 +27,8 @@ func _check_and_set_ball_suit_for_players(ball:Ball)->void:
 	
 	if _game_state.ball_suit_by_player_id[cp_id] == Enums.BallType.TBD:
 		_game_state.ball_suit_by_player_id[cp_id] = ball._ball_type 
+		
+		var op_id = int(not cp_id)
 	pass
 
 func _on_ball_potted(ball:Ball, pocket:Pocket):
