@@ -17,6 +17,7 @@ func _process_rules()->void:
 			
 			if ball._is_object_ball():
 				_check_and_set_ball_suit_for_players(ball)
+				print("Ball Suits are: ",_game_state.ball_suit_by_player_id)
 		pass
 		
 	_game_state.current_play_state = Enums.PlayState.AIMING
@@ -26,11 +27,16 @@ func _check_and_set_ball_suit_for_players(ball:Ball)->void:
 	var cp_id = _game_state.current_player_id
 	
 	if _game_state.ball_suit_by_player_id[cp_id] == Enums.BallType.TBD:
-		_game_state.ball_suit_by_player_id[cp_id] = ball._ball_type 
+		_game_state.ball_suit_by_player_id[cp_id] = ball._ball_type
+		 
+		var op_id = _get_other_player_id(cp_id)
 		
-		_get_other_player_id(cp_id)
-	pass
-
+		var suits_remaining = [Enums.BallType.SOLIDS, Enums.BallType.STRIPES]
+		suits_remaining.erase(ball._ball_type)
+		
+		## Assigns the ball type to the oponent
+		_game_state.ball_suit_by_player_id[op_id] = suits_remaining[0]
+		
 ## Returns the id of the other player.[br]
 ## Takes [param player_id] as the current player's id
 func _get_other_player_id(player_id:int)->int:
