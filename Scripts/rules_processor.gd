@@ -9,18 +9,30 @@ func _ready() -> void:
 	GameEvents.all_balls_stopped.connect(_on_all_balls_stopped)
 	GameEvents.ball_potted.connect(_on_ball_potted)
 
-
+## Processes the game rules
 func _process_rules()->void:
+	var cp_id = _game_state.current_player_id
+	var player_keeps_turn := false
+	
 	for occ in _occurences_during_shot:
 		if occ is PocketOccurence:
 			var ball:Ball = occ.ball
 			
 			if ball._is_object_ball():
 				_check_and_set_ball_suit_for_players(ball)
-				print("Ball Suits are: ",_game_state.ball_suit_by_player_id)
+				
+				if ball._ball_type == _game_state.ball_suit_by_player_id[cp_id]:
+					player_keeps_turn = true
+				
+				#Handle Eight ball and cue ball
 		pass
 		
+	if player_keeps_turn == false:
+		_game_state.current_player_id = _get_other_player_id(cp_id)
+		
 	_game_state.current_play_state = Enums.PlayState.AIMING
+	
+	_occurences_during_shot.clear()
 	GameEvents.shot_completed.emit()
 	
 func _check_and_set_ball_suit_for_players(ball:Ball)->void:
@@ -53,7 +65,6 @@ func _on_ball_potted(ball:Ball, pocket:Pocket):
 
 func _on_all_balls_stopped()->void:
 	if _game_state.current_play_state == Enums.PlayState.BALLS_IN_PLAY:
-		print("Processing rules")
 		_process_rules()
 
 ## Occurences
