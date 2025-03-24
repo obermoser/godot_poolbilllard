@@ -6,7 +6,7 @@ extends Node
 var _occurences_during_shot:Array[Occurence]
 
 func _ready() -> void:
-	GameEvents.all_balls_stopped.connect(_process_rules)
+	GameEvents.all_balls_stopped.connect(_on_all_balls_stopped)
 	GameEvents.ball_potted.connect(_on_ball_potted)
 
 
@@ -50,6 +50,11 @@ func _on_ball_potted(ball:Ball, pocket:Pocket):
 	pocket_occurence.pocket = pocket
 	_occurences_during_shot.append(pocket_occurence)
 
+
+func _on_all_balls_stopped()->void:
+	if _game_state.current_play_state == Enums.PlayState.BALLS_IN_PLAY:
+		print("Processing rules")
+		_process_rules()
 
 ## Occurences
 ## Keeps track of what happened on the field
