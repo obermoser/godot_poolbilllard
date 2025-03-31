@@ -13,6 +13,7 @@ func _ready() -> void:
 func _process_rules()->void:
 	var cp_id = _game_state.current_player_id
 	var player_keeps_turn := false
+	var foul_comitted := false
 	
 	for occ in _occurences_during_shot:
 		if occ is PocketOccurence:
@@ -23,14 +24,21 @@ func _process_rules()->void:
 				
 				if ball._ball_type == _game_state.ball_suit_by_player_id[cp_id]:
 					player_keeps_turn = true
-				
+
+
+				# Throws a foul if the cue ball gets pocketed
+				if ball._ball_type == Enums.BallType.CUE_BALL:
+					foul_comitted = true
+
 				#Handle Eight ball and cue ball
 		pass
 		
 	if player_keeps_turn == false:
 		_game_state.current_player_id = _get_other_player_id(cp_id)
-		
-	_game_state.current_play_state = Enums.PlayState.AIMING
+	if foul_comitted:
+		_game_state.current_play_state = Enums.PlayState.BALL_IN_HAND
+	else:		
+		_game_state.current_play_state = Enums.PlayState.AIMING
 	
 	_occurences_during_shot.clear()
 	GameEvents.shot_completed.emit()

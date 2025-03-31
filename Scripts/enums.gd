@@ -15,4 +15,5 @@ enum PlayState { ## Handling the play state of the balls
 	AIMING,
 	## The shot was already fired and balls are rollin
 	BALLS_IN_PLAY,
+	BALL_IN_HAND
 }
